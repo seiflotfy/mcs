@@ -1,7 +1,7 @@
-# Bing Speech Recogntition for Go
+# Bing Speech Recognition for Go
 
 
-## Howto use
+## How to use
 
 
 
