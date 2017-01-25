@@ -5,8 +5,8 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/axiomhq/msft-bing-speech"
-	"github.com/axiomhq/msft-bing-speech/demo/recorder"
+	"github.com/axiomhq/mcs/speech"
+	"github.com/axiomhq/mcs/speech/demo/recorder"
 )
 
 func checkErr(err error) {
@@ -33,7 +33,7 @@ func main() {
 	if len(res.Results) > 0 {
 		f, err := strconv.ParseFloat(res.Results[0].Confidence, 64)
 		checkErr(err)
-		fmt.Printf("I heard:\n\tPhrase: %s\n\tConfidence: %d %%\n", res.Results[0].Name, int(f*100))
+		fmt.Printf("Heard:\n\tPhrase: %s\n\tConfidence: %d %%\n", res.Results[0].Name, int(f*100))
 	} else {
 		fmt.Println("I did not hear anything")
 	}

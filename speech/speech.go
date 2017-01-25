@@ -7,6 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+
+	"github.com/axiomhq/mcs/utils"
 )
 
 const (
@@ -19,7 +21,7 @@ const (
 )
 
 func GetToken() (string, error) {
-	apiKey := os.Getenv("MICROSOFT_SPEECH_API_KEY")
+	apiKey := os.Getenv("MSFT_SPEECH_API_KEY")
 	req, err := http.NewRequest("POST", tokenURL, nil)
 	req.Header.Set("Ocp-Apim-Subscription-Key", apiKey)
 	client := &http.Client{}
@@ -63,7 +65,7 @@ type SpeechResult struct {
 }
 
 func NewSpeechRequest(locale, deviceOS, scenario, instanceID, token string, speech io.ReadCloser) (*SpeechRequest, error) {
-	reqID, err := NewUUID()
+	reqID, err := utils.NewUUID()
 	if err != nil {
 		return nil, err
 	}

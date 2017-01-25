@@ -1,4 +1,4 @@
-package speech
+package utils
 
 import (
 	"crypto/rand"
